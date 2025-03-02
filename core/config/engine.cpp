@@ -47,6 +47,15 @@ int Engine::get_physics_ticks_per_second() const {
 	return ips;
 }
 
+void Engine::set_physics_delta(int ticks_per_second) {
+	ERR_FAIL_COND_MSG( ticks_per_second <= 0, "Ticks/second used for calculating physics delta must be positive.");
+	_physics_delta = 1.0 / static_cast<float>(ticks_per_second);
+}
+
+int Engine::get_physics_delta() const {
+	return _physics_delta;
+}
+
 void Engine::set_max_physics_steps_per_frame(int p_max_physics_steps) {
 	ERR_FAIL_COND_MSG(p_max_physics_steps <= 0, "Maximum number of physics steps per frame must be greater than 0.");
 	max_physics_steps_per_frame = p_max_physics_steps;

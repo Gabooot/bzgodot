@@ -4399,7 +4399,7 @@ bool Main::iteration() {
 	const uint64_t ticks_elapsed = ticks - last_ticks;
 
 	const int physics_ticks_per_second = Engine::get_singleton()->get_physics_ticks_per_second();
-	const double physics_step = 1.0 / physics_ticks_per_second;
+	const double physics_step = Engine::get_singleton()->get_physics_delta();
 
 	const double time_scale = Engine::get_singleton()->get_time_scale();
 

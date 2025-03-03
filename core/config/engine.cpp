@@ -47,12 +47,12 @@ int Engine::get_physics_ticks_per_second() const {
 	return ips;
 }
 
-void Engine::set_physics_delta(int ticks_per_second) {
-	ERR_FAIL_COND_MSG( ticks_per_second <= 0, "Ticks/second used for calculating physics delta must be positive.");
-	_physics_delta = 1.0 / static_cast<float>(ticks_per_second);
+void Engine::set_physics_delta(int p_ticks_per_second) {
+	ERR_FAIL_COND_MSG(p_ticks_per_second <= 0, "Ticks/second used for calculating physics delta must be positive.");
+	_physics_delta = 1.0 / static_cast<float>(p_ticks_per_second);
 }
 
-int Engine::get_physics_delta() const {
+double Engine::get_physics_delta() const {
 	return _physics_delta;
 }
 

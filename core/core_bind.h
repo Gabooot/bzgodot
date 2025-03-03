@@ -537,6 +537,9 @@ public:
 	static Engine *get_singleton() { return singleton; }
 	void set_physics_ticks_per_second(int p_ips);
 	int get_physics_ticks_per_second() const;
+	
+	void set_physics_delta(int p_ticks_per_second);
+	double get_physics_delta() const;
 
 	void set_max_physics_steps_per_frame(int p_max_physics_steps);
 	int get_max_physics_steps_per_frame() const;

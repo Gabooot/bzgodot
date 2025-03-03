@@ -1758,6 +1758,14 @@ int Engine::get_physics_ticks_per_second() const {
 	return ::Engine::get_singleton()->get_physics_ticks_per_second();
 }
 
+void Engine::set_physics_delta(int p_ticks_per_frame) {
+	::Engine::get_singleton()->set_physics_delta(p_ticks_per_frame);
+}
+
+double Engine::get_physics_delta() const {
+	return ::Engine::get_singleton()->get_physics_delta();
+}
+
 void Engine::set_max_physics_steps_per_frame(int p_max_physics_steps) {
 	::Engine::get_singleton()->set_max_physics_steps_per_frame(p_max_physics_steps);
 }
@@ -1945,6 +1953,8 @@ void Engine::get_argument_options(const StringName &p_function, int p_idx, List<
 void Engine::_bind_methods() {
 	ClassDB::bind_method(D_METHOD("set_physics_ticks_per_second", "physics_ticks_per_second"), &Engine::set_physics_ticks_per_second);
 	ClassDB::bind_method(D_METHOD("get_physics_ticks_per_second"), &Engine::get_physics_ticks_per_second);
+	ClassDB::bind_method(D_METHOD("set_physics_delta", "ticks_per_second"), &Engine::set_physics_delta);
+	ClassDB::bind_method(D_METHOD("get_physics_delta"), &Engine::get_physics_delta);
 	ClassDB::bind_method(D_METHOD("set_max_physics_steps_per_frame", "max_physics_steps"), &Engine::set_max_physics_steps_per_frame);
 	ClassDB::bind_method(D_METHOD("get_max_physics_steps_per_frame"), &Engine::get_max_physics_steps_per_frame);
 	ClassDB::bind_method(D_METHOD("set_physics_jitter_fix", "physics_jitter_fix"), &Engine::set_physics_jitter_fix);

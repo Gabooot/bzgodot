@@ -59,6 +59,7 @@ private:
 	double _process_step = 0;
 
 	int ips = 60;
+	double _physics_delta = (1.0 / 60.0);
 	double physics_jitter_fix = 0.5;
 	double _fps = 1;
 	int _max_fps = 0;
@@ -106,6 +107,9 @@ public:
 
 	virtual void set_physics_ticks_per_second(int p_ips);
 	virtual int get_physics_ticks_per_second() const;
+
+	virtual void set_physics_delta(int ticks_per_second);
+	virtual double get_physics_delta() const;
 
 	virtual void set_max_physics_steps_per_frame(int p_max_physics_steps);
 	virtual int get_max_physics_steps_per_frame() const;

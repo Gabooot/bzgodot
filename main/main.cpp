@@ -4689,7 +4689,7 @@ bool Main::iteration() {
 
 	const double time_scale = Engine::get_singleton()->get_time_scale();
 
-	MainFrameTime advance = main_timer_sync.advance(physics_step, physics_ticks_per_second);
+	MainFrameTime advance = main_timer_sync.advance((1.0 / physics_ticks_per_second), physics_ticks_per_second);
 	double process_step = advance.process_step;
 	double scaled_step = process_step * time_scale;
 
@@ -4708,7 +4708,7 @@ bool Main::iteration() {
 
 	const int max_physics_steps = Engine::get_singleton()->get_max_physics_steps_per_frame();
 	if (fixed_fps == -1 && advance.physics_steps > max_physics_steps) {
-		process_step -= (advance.physics_steps - max_physics_steps) * physics_step;
+		process_step -= (advance.physics_steps - max_physics_steps) * (1.0 / physics_ticks_per_second);
 		advance.physics_steps = max_physics_steps;
 	}
 
